@@ -1,0 +1,29 @@
+LinkedList 链表，采用了了双向链表的形式进行定义
+在初始化链表的时候继承使用了AbstractList的初始化方法
+创建了一个瞬时modCount变量
+然后在LinkedList中创建了一个瞬时变量size
+LinkedList是非线程安全的
+add(e)
+首先取得上一个节点last定义成l，然后定义一个新节点newNode
+将新节点赋给last
+如果原来的节点是空的，将newNode赋给first节点
+如果原来的节点非空，将newNode赋给上一个节点l的下一个节点
+然后将size++,modCount++;
+clear()
+从第一个开始循环取直到null为止，然后将节点的属性都取空，开始下一个节点
+在循环结束后将开始结束节点置空，将size为0，操作数增加1
+get(index)
+如果index>=0且小于size
+就进node方法判断index在前一半还是后一半，然后循环向中间取，直至循环完成，取到node
+remove(index)
+判断index是否在范围内
+然后通过node方法查找node
+再进unlink方法进行移除
+tip:可以使用局部final保证线程安全 能用final的尽量用final
+iterator()
+进入方法listIterator(0)，然后进入内部类ListInr的构造方法 取next等于第一个元素
+然后返回ListInr
+
+.LinkedList是非线程安全的
+.LinkedList在插入元素的时候，需创建一个新的Entry对象
+.

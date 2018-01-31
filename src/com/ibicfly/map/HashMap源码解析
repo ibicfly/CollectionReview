@@ -1,0 +1,31 @@
+HashMap()
+键值对的形式	hashMap采用红黑树进行实现	
+hashMap()
+将loadFactor设成默认的0.75,threshold设置成12，并创建一个大小为16的Entry对象数组
+可以通过调用HashMap的另外两个构造器来控制初始的容量和增加量
+put(Object key,Object value)
+允许key为null，找到对应的key为null，更改其value值
+如果key不为null，首先对对象进行hashCode()，在对hash进行hash操作，为了防止对应得到的hash值产生冲突
+	采用链地址
+hashmap初始化用参数
+	int DEFAULT_INITIAL_CAPACITY = 16：默认的初始容量为16 
+	int MAXIMUM_CAPACITY = 1 << 30：最大的容量为 2 ^ 30 
+	float DEFAULT_LOAD_FACTOR = 0.75f：默认的加载因子为 0.75f 
+	Entry< K,V>[] table：Entry类型的数组，HashMap用这个来维护内部的数据结构，它的长度由容量决定 
+	int size：HashMap的大小 
+	int threshold：HashMap的极限容量，扩容临界点（容量和加载因子的乘积）
+	
+
+①.判断键值对数组table[i]是否为空或为null，否则执行resize()进行扩容；
+
+②.根据键值key计算hash值得到插入的数组索引i，如果table[i]==null，直接新建节点添加，转向⑥，如果table[i]不为空，转向③；
+
+③.判断table[i]的首个元素是否和key一样，如果相同直接覆盖value，否则转向④，这里的相同指的是hashCode以及equals；
+
+④.判断table[i] 是否为treeNode，即table[i] 是否是红黑树，如果是红黑树，则直接在树中插入键值对，否则转向⑤；
+
+⑤.遍历table[i]，判断链表长度是否大于8，大于8的话把链表转换为红黑树，在红黑树中执行插入操作，否则进行链表的插入操作；
+
+遍历过程中若发现key已经存在直接覆盖value即可；
+
+⑥.插入成功后，判断实际存在的键值对数量size是否超多了最大容量threshold，如果超过，进行扩容。	

@@ -1,0 +1,6 @@
+HashSet
+底层采用hashMap进行实现 没有容量限制 非线程安全
+add(E e)
+在添加的时候，采用将要添加的对象进行hash，然后hashMap的putVal() 
+key为将要添加的对象e value为类被初始化时的一个Object
+remove()

@@ -1,0 +1,12 @@
+Vector是线程安全的
+Vector 向量
+new Vector();
+首先初始化一个长度为10的数组 然后将容量增加量设为0
+add() synchronized
+首先将操作数+1，ensureCapacityHelper(elementCount+1) 如果elementCount+1比现在的数组大小大
+	则表示elementCount代表元素个数已经超过数组大小，下一个就会超过index,所以进入grow()方法
+grow()
+如果capacityIncement>0则增加capacityIncement,否则将现在数组大小翻倍
+然后判断是否小于minCapacity,是否大于最大数组大小，超过只能调用hugeCapacity
+remove()
+复用ArrayList的remove方法逻辑

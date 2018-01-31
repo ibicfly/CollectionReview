@@ -1,0 +1,8 @@
+Stack 以 Vector为底层实现
+关键在于增加了push,pop,peek三个方法
+push()
+按照Vector的方式加入元素
+peek()
+取得长度，返回最后一个元素
+pop()
+根据peek()方法取得最后一个元素，然后将

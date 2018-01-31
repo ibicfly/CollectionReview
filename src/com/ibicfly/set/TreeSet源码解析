@@ -1,0 +1,5 @@
+TreeSet
+new TreeSet();
+有序的Set集合 不能有重复元素 底层实现为TreeMap
+将TreeSet中的m变量初始化为TreeMap
+TreeSet不支持快速随机遍历

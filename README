@@ -1,0 +1,23 @@
+java 集合类复习总结
+Map 键值对
+Map 
+	HashMap TreeMap
+Collection 集合类
+	List 有序列表集合
+	Set 不重复的元素集合 
+
+List 
+	ArrayList LinkedList Vector Stack
+Set
+	HashSet TreeSet
+
+Collection重点：
+1.集合的创建，对应集合实现类的构造器在构造方法中集合的实现类都做了什么操作
+2.往集合中增加对象
+3.删除集合中的对象
+4.获取集合中的单个对象
+5.遍历集合中的对象
+6.判断对象是否存在于集合中
+7.集合中对象的排序
+
+

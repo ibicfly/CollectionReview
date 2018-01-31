@@ -1,0 +1,14 @@
+TreeMap	 基于红黑树实现，无容量限制 非线程安全
+构造方法，首先构造了一堆属性，然后comparator设为null
+private final Comparator<? super K> comparator;
+private transient Entry<K,V> root;
+private transient int size = 0;
+private transient int modCount = 0;
+
+put(Object key,Object value)
+key,value都不允许放null;
+判断根节点是否为空，如果是null,对比大小，然后往树里面插，基于红黑树的方式遍历，然后插入，修正红黑树
+fixAfterInsertion函数修复树，把树修复成红黑树
+
+get()
+通过遍历红黑树进行
